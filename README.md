@@ -39,11 +39,12 @@ Target: completed by 2026-07-15
  # Notes
 
 ## Docker
-docker run --name <name> -d ubuntu:latest
+docker run --name process-name -d ubuntu:latest
 
 docker compose up -d --build
 
-docker exec <image-name> <command>
+docker exec image-name command
+
 docker exec -it laravel-apache2-1 bash
 
 docker ps -a
