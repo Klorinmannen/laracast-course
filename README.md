@@ -35,3 +35,35 @@ Target: completed by 2026-07-15
 Target: completed by 2026-07-15
 
  [Laracast-link](https://laracasts.com/series/laravel-vue-and-spas)
+
+ # Notes
+
+## Docker
+docker run --name <name> -d ubuntu:latest
+
+docker compose up -d --build
+
+docker exec <image-name> <command>
+docker exec -it laravel-apache2-1 bash
+
+docker ps -a
+
+## Laravel setup
+
+För att få igång Laravels egna default/projekt-starts view.
+
+* docker compose up -d --build
+
+### Filesystem perms
+
+Tillsvidare ..
+
+* chown -R www-data:www-data src/
+* chmod 755 (rwxr-xr-x) -R src/storage/
+* chmod 777 (rwxrwxrwx) -R src/storage/framework/views
+
+### Artisan
+
+1. docker exec laravel-php-fpm-1 php artisan make:session-table
+2. docker exec laravel-php-fpm-1 php artisan migrate
+
