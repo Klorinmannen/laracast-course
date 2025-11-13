@@ -39,32 +39,33 @@ Target: completed by 2026-07-15
  # Notes
 
 ## Docker
-docker run --name process-name -d ubuntu:latest
+* ``docker run --name <new-container-name> -d ubuntu:latest``
+* ``docker compose up -d --build``
+* ``docker exec <container-name> <command>``
+* * ``docker exec -it <container-name> bash|sh``
+* ``docker ps -a``
+* ``docker prune -f --filter status=exited``
+* ``docker start <container-name>``
+* ``docker restart <container-name>``
+* ``docker stop <container-name>``
 
-docker compose up -d --build
-
-docker exec image-name command
-
-docker exec -it laravel-apache2-1 bash
-
-docker ps -a
 
 ## Laravel setup
 
 För att få igång Laravels egna default/projekt-starts view.
 
-* docker compose up -d --build
+* ``docker compose up -d --build``
 
 ### Filesystem perms
 
 Tillsvidare ..
 
-* chown -R www-data:www-data src/
-* chmod 755 (rwxr-xr-x) -R src/storage/
-* chmod 777 (rwxrwxrwx) -R src/storage/framework/views
+* ``chown -R www-data:www-data src/``
+* ``chmod 755 (rwxr-xr-x) -R src/storage/``
+* ``chmod 777 (rwxrwxrwx) -R src/storage/framework/views``
 
 ### Artisan
 
-1. docker exec laravel-php-fpm-1 php artisan make:session-table
-2. docker exec laravel-php-fpm-1 php artisan migrate
+1. ``docker exec laravel-php-fpm-1 php artisan make:session-table``
+2. ``docker exec laravel-php-fpm-1 php artisan migrate``
 
