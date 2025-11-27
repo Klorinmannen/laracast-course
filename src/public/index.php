@@ -1,6 +1,6 @@
 <?php
 
-#echo "Hello from Laravel index.php";
+#echo exec('whoami');
 #exit;
 
 use Illuminate\Foundation\Application;

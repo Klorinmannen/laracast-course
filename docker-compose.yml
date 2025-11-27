@@ -1,19 +1,20 @@
 services:
   apache2:
-    build: ./docker/apache2
+    build: ./apache2-1
     ports:
       - "8080:80"
     volumes:
       - ./src:/var/www/src
+      - ./apache2-1/httpd.conf:/usr/local/apache2/conf/httpd.conf
     depends_on:
       - php-fpm
     networks:
       - laranet
 
   php-fpm:
-    build: ./docker/php
+    build: ./php
     volumes:
-      - ./src:/var/www/src/
+      - ./src:/var/www/src
     networks:
       - laranet
 
