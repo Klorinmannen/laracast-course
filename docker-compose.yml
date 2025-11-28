@@ -1,11 +1,11 @@
 services:
   apache2:
-    build: ./apache2-1
+    build: ./apache2
     ports:
-      - "8080:80"
+      - "8000:80"
     volumes:
       - ./src:/var/www/src
-      - ./apache2-1/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf
     depends_on:
       - php-fpm
     networks:
