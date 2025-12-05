@@ -1,18 +1,19 @@
 services:
   apache2:
-    build: ./apache2
+    build: ./docker/apache2
     ports:
       - "8000:80"
     volumes:
-      - ./src:/var/www/src
-      - ./apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./src/public:/var/www/src/public
+      - ./docker/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./docker/apache2/extra/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
     depends_on:
-      - php-fpm
+      - laravel-app
     networks:
       - laranet
 
-  php-fpm:
-    build: ./php
+  laravel-app:
+    build: ./docker/php
     volumes:
       - ./src:/var/www/src
     networks:
